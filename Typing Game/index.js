@@ -56,12 +56,14 @@ input.addEventListener('input',()=>{
     else if(typedValue.endsWith(' ') && typedValue.trim()===word){
         index++;
         input.value='';
-        console.log('keep typing');
         for(el of message.childNodes){
             el.className='';
         }
         message.childNodes[index].className='highlight';
-    } 
+    }
+    else{
+        console.log('The Game is case sensitive');
+    }
 });
 
 
