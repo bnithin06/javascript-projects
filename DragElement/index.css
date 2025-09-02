@@ -1,0 +1,17 @@
+*{
+	padding:0;
+	margin:0;
+	box-sizing:border-box;
+	font-family: Verdana, Geneva, Tahoma, sans-serif;
+}
+#screen-log {
+  position: absolute;   /* required for moving */
+  left: 50px;
+  top: 50px;
+  background: #4caf50;
+  color: white;
+  padding: 10px 20px;
+  border-radius: 8px;
+  cursor: grab;
+  user-select: none;   /* prevent text selection */
+}
