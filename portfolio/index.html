@@ -3,17 +3,20 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Your Name - Frontend Developer & Django Specialist</title>
+    <title>YourName - Developer Portfolio</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <style>
-        /* Base Styles */
+        /* GitHub-inspired dark theme */
         :root {
-            --primary: #2c3e50;
-            --secondary: #3498db;
-            --accent: #e74c3c;
-            --light: #f8f9fa;
-            --dark: #343a40;
-            --transition: all 0.3s ease;
+            --github-bg: #0d1117;
+            --github-header: #161b22;
+            --github-border: #30363d;
+            --github-text: #c9d1d9;
+            --github-accent: #58a6ff;
+            --github-green: #3fb950;
+            --github-purple: #bc8cff;
+            --github-orange: #ffa657;
+            --github-red: #ff7b72;
         }
         
         * {
@@ -23,988 +26,569 @@
         }
         
         body {
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            line-height: 1.6;
-            color: #333;
-            background-color: white;
-            overflow-x: hidden;
-        }
-        
-        a {
-            text-decoration: none;
-            color: var(--secondary);
-            transition: var(--transition);
-        }
-        
-        a:hover {
-            color: var(--accent);
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+            background-color: var(--github-bg);
+            color: var(--github-text);
+            line-height: 1.5;
         }
         
         .container {
-            width: 90%;
-            max-width: 1200px;
+            max-width: 1280px;
             margin: 0 auto;
-            padding: 0 15px;
+            padding: 0 16px;
         }
         
-        .section {
-            padding: 80px 0;
-        }
-        
-        .section-title {
-            text-align: center;
-            margin-bottom: 50px;
-            position: relative;
-        }
-        
-        .section-title h2 {
-            font-size: 2.5rem;
-            color: var(--primary);
-            margin-bottom: 15px;
-        }
-        
-        .section-title::after {
-            content: '';
-            position: absolute;
-            bottom: -10px;
-            left: 50%;
-            transform: translateX(-50%);
-            width: 80px;
-            height: 4px;
-            background: var(--secondary);
-        }
-        
-        .btn {
-            display: inline-block;
-            padding: 12px 28px;
-            background: var(--secondary);
-            color: white;
-            border-radius: 5px;
-            text-transform: uppercase;
-            font-weight: 600;
-            letter-spacing: 1px;
-            transition: var(--transition);
-            border: none;
-            cursor: pointer;
-        }
-        
-        .btn:hover {
-            background: var(--primary);
-            color: white;
-            transform: translateY(-3px);
-            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
-        }
-        
-        /* Header & Navigation */
-        header {
-            position: fixed;
+        /* Header/Navbar - GitHub style */
+        .header {
+            background-color: var(--github-header);
+            padding: 12px 0;
+            border-bottom: 1px solid var(--github-border);
+            position: sticky;
             top: 0;
-            left: 0;
-            width: 100%;
-            z-index: 1000;
-            background: white;
-            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
-            transition: var(--transition);
+            z-index: 100;
         }
         
-        header.scrolled {
-            padding: 10px 0;
-        }
-        
-        .nav-container {
+        .nav {
             display: flex;
-            justify-content: space-between;
             align-items: center;
-            padding: 20px 0;
+            justify-content: space-between;
         }
         
-        .logo {
-            font-size: 1.8rem;
-            font-weight: 700;
-            color: var(--primary);
+        .nav-brand {
+            display: flex;
+            align-items: center;
+            gap: 16px;
         }
         
-        .logo span {
-            color: var(--secondary);
+        .nav-logo {
+            width: 32px;
+            height: 32px;
+            background: linear-gradient(45deg, var(--github-accent), var(--github-purple));
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-weight: bold;
         }
         
         .nav-links {
             display: flex;
-            list-style: none;
+            gap: 24px;
         }
         
-        .nav-links li {
-            margin-left: 30px;
+        .nav-link {
+            color: var(--github-text);
+            text-decoration: none;
+            font-size: 14px;
+            font-weight: 500;
         }
         
-        .nav-links a {
-            color: var(--dark);
-            font-weight: 600;
-            position: relative;
+        .nav-link:hover {
+            color: var(--github-accent);
         }
         
-        .nav-links a::after {
-            content: '';
-            position: absolute;
-            bottom: -5px;
-            left: 0;
-            width: 0;
-            height: 2px;
-            background: var(--secondary);
-            transition: var(--transition);
+        /* GitHub Profile Layout */
+        .profile-container {
+            display: flex;
+            gap: 24px;
+            margin-top: 24px;
         }
         
-        .nav-links a:hover::after {
+        .profile-sidebar {
+            width: 280px;
+            flex-shrink: 0;
+        }
+        
+        .profile-main {
+            flex-grow: 1;
+        }
+        
+        /* Profile Card - Similar to GitHub */
+        .profile-card {
+            background-color: var(--github-header);
+            border: 1px solid var(--github-border);
+            border-radius: 6px;
+            padding: 16px;
+            margin-bottom: 16px;
+        }
+        
+        .avatar {
             width: 100%;
+            border-radius: 50%;
+            margin-bottom: 16px;
+            border: 1px solid var(--github-border);
         }
         
-        .menu-toggle {
-            display: none;
+        .username {
+            font-size: 24px;
+            font-weight: 600;
+            margin-bottom: 4px;
+        }
+        
+        .userbio {
+            color: #8b949e;
+            margin-bottom: 16px;
+            font-size: 14px;
+        }
+        
+        .userdetails {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            font-size: 14px;
+            margin-bottom: 8px;
+            color: #8b949e;
+        }
+        
+        .social-stats {
+            display: flex;
+            gap: 16px;
+            padding: 16px 0;
+            border-top: 1px solid var(--github-border);
+            margin-top: 16px;
+        }
+        
+        .stat {
+            font-size: 12px;
+            color: #8b949e;
+        }
+        
+        .stat-number {
+            font-weight: 600;
+            color: var(--github-text);
+        }
+        
+        /* GitHub-like tabs */
+        .tabs {
+            display: flex;
+            border-bottom: 1px solid var(--github-border);
+            margin-bottom: 16px;
+        }
+        
+        .tab {
+            padding: 8px 16px;
+            font-size: 14px;
             cursor: pointer;
-            font-size: 1.5rem;
+            border-bottom: 2px solid transparent;
         }
         
-        /* Hero Section */
-        .hero {
-            height: 100vh;
-            display: flex;
-            align-items: center;
-            background: whitesmoke;
-            position: relative;
-            overflow: hidden;
+        .tab.active {
+            border-bottom-color: var(--github-orange);
+            font-weight: 500;
         }
         
-        .hero-content {
-            max-width: 600px;
-            z-index: 1;
+        .tab:hover {
+            border-bottom-color: var(--github-text);
         }
         
-        .hero-content h1 {
-            font-size: 3.5rem;
-            margin-bottom: 20px;
-            color: var(--primary);
-            animation: fadeInUp 1s ease;
-        }
-        
-        .hero-content p {
-            font-size: 1.2rem;
-            margin-bottom: 30px;
-            color: #555;
-            animation: fadeInUp 1s ease 0.2s;
-            animation-fill-mode: both;
-        }
-        
-        .hero-content .btn {
-            animation: fadeInUp 1s ease 0.4s;
-            animation-fill-mode: both;
-        }
-        
-        .hero-image {
-            position: absolute;
-            right: 10%;
-            bottom: 0;
-            width: 40%;
-            max-width: 500px;
-            animation: fadeInRight 1s ease;
-        }
-        
-        /* About Section */
-        .about-content {
-            display: flex;
-            align-items: center;
-            gap: 50px;
-        }
-        
-        .about-text {
-            flex: 1;
-        }
-        
-        .about-text h3 {
-            font-size: 2rem;
-            margin-bottom: 20px;
-            color: var(--primary);
-        }
-        
-        .about-text p {
-            margin-bottom: 15px;
-        }
-        
-        .about-image {
-            flex: 1;
-            text-align: center;
-        }
-        
-        .about-image img {
-            max-width: 100%;
-            border-radius: 10px;
-            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
-        }
-        
-        /* Skills Section */
-        .skills {
-            background: whitesmoke;
-        }
-        
-        .skills-container {
-            display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
-            gap: 30px;
-        }
-        
-        .skill-category {
-            background: white;
-            padding: 30px;
-            border-radius: 10px;
-            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
-            transition: var(--transition);
-        }
-        
-        .skill-category:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.1);
-        }
-        
-        .skill-category h3 {
-            font-size: 1.5rem;
-            margin-bottom: 20px;
-            color: var(--primary);
-            text-align: center;
-        }
-        
-        .skill-list {
-            list-style: none;
-        }
-        
-        .skill-list li {
-            margin-bottom: 15px;
-            display: flex;
-            align-items: center;
-        }
-        
-        .skill-list i {
-            color: var(--secondary);
-            margin-right: 10px;
-            font-size: 1.2rem;
-        }
-        
-        /* Projects Section */
-        .projects-container {
+        /* Repository cards - GitHub style */
+        .repo-grid {
             display: grid;
             grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
-            gap: 30px;
+            gap: 16px;
         }
         
-        .project-card {
-            background: white;
-            border-radius: 10px;
-            overflow: hidden;
-            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
-            transition: var(--transition);
-        }
-        
-        .project-card:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.1);
-        }
-        
-        .project-image {
-            height: 200px;
-            overflow: hidden;
-        }
-        
-        .project-image img {
-            width: 100%;
+        .repo-card {
+            background-color: var(--github-header);
+            border: 1px solid var(--github-border);
+            border-radius: 6px;
+            padding: 16px;
             height: 100%;
-            object-fit: cover;
-            transition: var(--transition);
-        }
-        
-        .project-card:hover .project-image img {
-            transform: scale(1.1);
-        }
-        
-        .project-info {
-            padding: 20px;
-        }
-        
-        .project-info h3 {
-            font-size: 1.5rem;
-            margin-bottom: 10px;
-            color: var(--primary);
-        }
-        
-        .project-info p {
-            color: #666;
-            margin-bottom: 15px;
-        }
-        
-        .project-tags {
             display: flex;
-            flex-wrap: wrap;
-            margin-bottom: 15px;
+            flex-direction: column;
         }
         
-        .project-tags span {
-            background: #f1f1f1;
-            padding: 5px 10px;
-            border-radius: 20px;
-            font-size: 0.8rem;
-            margin-right: 5px;
-            margin-bottom: 5px;
-            color: #555;
+        .repo-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            margin-bottom: 8px;
         }
         
-        /* Experience Section */
-        .experience {
-            background: whitesmoke;
+        .repo-name {
+            color: var(--github-accent);
+            font-weight: 600;
+            text-decoration: none;
+            font-size: 14px;
         }
         
-        .timeline {
-            position: relative;
-            max-width: 800px;
-            margin: 0 auto;
+        .repo-name:hover {
+            text-decoration: underline;
         }
         
-        .timeline::after {
-            content: '';
-            position: absolute;
-            width: 6px;
-            background-color: var(--secondary);
-            top: 0;
-            bottom: 0;
-            left: 50%;
-            margin-left: -3px;
+        .repo-visibility {
+            font-size: 12px;
+            color: #8b949e;
+            border: 1px solid var(--github-border);
+            border-radius: 12px;
+            padding: 2px 6px;
+            text-transform: lowercase;
         }
         
-        .timeline-item {
-            padding: 10px 40px;
-            position: relative;
-            width: 50%;
-            animation: fadeInUp 1s ease;
+        .repo-desc {
+            font-size: 12px;
+            color: #8b949e;
+            margin-bottom: 16px;
+            flex-grow: 1;
         }
         
-        .timeline-item:nth-child(odd) {
-            left: 0;
+        .repo-meta {
+            display: flex;
+            gap: 16px;
+            font-size: 12px;
+            color: #8b949e;
         }
         
-        .timeline-item:nth-child(even) {
-            left: 50%;
+        .repo-language {
+            display: flex;
+            align-items: center;
+            gap: 4px;
         }
         
-        .timeline-content {
-            padding: 20px;
-            background-color: white;
-            position: relative;
-            border-radius: 10px;
-            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
-        }
-        
-        .timeline-content h3 {
-            color: var(--primary);
-            margin-bottom: 10px;
-        }
-        
-        .timeline-content p {
-            margin-bottom: 10px;
-            color: #666;
-        }
-        
-        .timeline-date {
-            font-weight: bold;
-            color: var(--secondary);
-        }
-        
-        .timeline-item::after {
-            content: '';
-            position: absolute;
-            width: 25px;
-            height: 25px;
-            background-color: white;
-            border: 4px solid var(--secondary);
+        .language-color {
+            width: 12px;
+            height: 12px;
             border-radius: 50%;
-            top: 15px;
-            z-index: 1;
+            display: inline-block;
         }
         
-        .timeline-item:nth-child(odd)::after {
-            right: -13px;
+        .javascript-color {
+            background-color: #f1e05a;
         }
         
-        .timeline-item:nth-child(even)::after {
-            left: -13px;
+        .python-color {
+            background-color: #3572A5;
         }
         
-        /* Contact Section */
-        .contact-content {
+        .html-color {
+            background-color: #e34c26;
+        }
+        
+        .css-color {
+            background-color: #563d7c;
+        }
+        
+        /* GitHub contribution graph style */
+        .contribution-graph {
+            background-color: var(--github-header);
+            border: 1px solid var(--github-border);
+            border-radius: 6px;
+            padding: 16px;
+            margin-bottom: 24px;
+        }
+        
+        .graph-header {
             display: flex;
-            gap: 50px;
+            justify-content: space-between;
+            margin-bottom: 16px;
         }
         
-        .contact-info {
-            flex: 1;
+        .graph-grid {
+            display: grid;
+            grid-template-columns: repeat(52, 1fr);
+            gap: 2px;
         }
         
-        .contact-info h3 {
-            font-size: 1.8rem;
-            margin-bottom: 20px;
-            color: var(--primary);
+        .graph-cell {
+            width: 12px;
+            height: 12px;
+            background-color: #161b22;
+            border-radius: 2px;
         }
         
-        .contact-info p {
-            margin-bottom: 20px;
+        .graph-cell[data-level="1"] {
+            background-color: #0e4429;
         }
         
-        .contact-details {
+        .graph-cell[data-level="2"] {
+            background-color: #006d32;
+        }
+        
+        .graph-cell[data-level="3"] {
+            background-color: #26a641;
+        }
+        
+        .graph-cell[data-level="4"] {
+            background-color: #39d353;
+        }
+        
+        /* Activity feed */
+        .activity-feed {
             list-style: none;
         }
         
-        .contact-details li {
-            margin-bottom: 15px;
-            display: flex;
-            align-items: center;
+        .activity-item {
+            padding: 16px;
+            border-bottom: 1px solid var(--github-border);
+            font-size: 14px;
         }
         
-        .contact-details i {
-            color: var(--secondary);
-            margin-right: 15px;
-            font-size: 1.2rem;
+        .activity-item:last-child {
+            border-bottom: none;
         }
         
-        .contact-form {
-            flex: 1;
-        }
-        
-        .form-group {
-            margin-bottom: 20px;
-        }
-        
-        .form-group label {
-            display: block;
-            margin-bottom: 5px;
-            font-weight: 600;
-        }
-        
-        .form-control {
-            width: 100%;
-            padding: 12px;
-            border: 1px solid #ddd;
-            border-radius: 5px;
-            font-family: inherit;
-            font-size: 1rem;
-        }
-        
-        textarea.form-control {
-            min-height: 150px;
-            resize: vertical;
+        .activity-time {
+            color: #8b949e;
+            font-size: 12px;
+            margin-top: 4px;
         }
         
         /* Footer */
-        footer {
-            background: var(--primary);
-            color: white;
-            padding: 40px 0 20px;
+        .footer {
+            border-top: 1px solid var(--github-border);
+            padding: 24px 0;
+            margin-top: 40px;
             text-align: center;
+            font-size: 12px;
+            color: #8b949e;
         }
         
-        .social-links {
-            margin-bottom: 20px;
-        }
-        
-        .social-links a {
-            display: inline-block;
-            width: 40px;
-            height: 40px;
-            background: rgba(255, 255, 255, 0.1);
-            border-radius: 50%;
-            color: white;
-            line-height: 40px;
-            margin: 0 5px;
-            transition: var(--transition);
-        }
-        
-        .social-links a:hover {
-            background: var(--secondary);
-            transform: translateY(-5px);
-        }
-        
-        .copyright {
-            margin-top: 20px;
-            font-size: 0.9rem;
-            color: rgba(255, 255, 255, 0.7);
-        }
-        
-        /* Animations */
-        @keyframes fadeInUp {
-            from {
-                opacity: 0;
-                transform: translateY(20px);
-            }
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
-        }
-        
-        @keyframes fadeInRight {
-            from {
-                opacity: 0;
-                transform: translateX(50px);
-            }
-            to {
-                opacity: 1;
-                transform: translateX(0);
-            }
-        }
-        
-        /* Responsive Design */
-        @media (max-width: 992px) {
-            .hero-content h1 {
-                font-size: 2.8rem;
-            }
-            
-            .about-content {
-                flex-direction: column;
-            }
-            
-            .contact-content {
-                flex-direction: column;
-            }
-            
-            .timeline::after {
-                left: 31px;
-            }
-            
-            .timeline-item {
-                width: 100%;
-                padding-left: 70px;
-                padding-right: 25px;
-            }
-            
-            .timeline-item:nth-child(even) {
-                left: 0;
-            }
-            
-            .timeline-item::after {
-                left: 18px;
-            }
-            
-            .timeline-item:nth-child(odd)::after {
-                right: auto;
-            }
-        }
-        
+        /* Responsive adjustments */
         @media (max-width: 768px) {
-            .menu-toggle {
-                display: block;
-            }
-            
-            .nav-links {
-                position: fixed;
-                top: 70px;
-                left: -100%;
-                width: 100%;
-                height: calc(100vh - 70px);
-                background: white;
+            .profile-container {
                 flex-direction: column;
-                align-items: center;
-                justify-content: center;
-                transition: var(--transition);
             }
             
-            .nav-links.active {
-                left: 0;
+            .profile-sidebar {
+                width: 100%;
             }
             
-            .nav-links li {
-                margin: 15px 0;
+            .repo-grid {
+                grid-template-columns: 1fr;
             }
             
-            .hero-content h1 {
-                font-size: 2.5rem;
-            }
-            
-            .hero-image {
-                display: none;
-            }
-            
-            .section-title h2 {
-                font-size: 2rem;
+            .graph-grid {
+                overflow-x: auto;
+                padding-bottom: 16px;
             }
         }
     </style>
 </head>
 <body>
-    <!-- Header -->
-    <header id="header">
-        <div class="container nav-container">
-            <a href="#" class="logo">Nithin<span>Begari</span></a>
-            
-            <div class="menu-toggle" id="menu-toggle">
-                <i class="fas fa-bars"></i>
+    <!-- GitHub-like header -->
+    <header class="header">
+        <div class="container nav">
+            <div class="nav-brand">
+                <div class="nav-logo">YN</div>
+                <span>YourName</span>
             </div>
-            
-            <ul class="nav-links" id="nav-links">
-                <li><a href="#home">Home</a></li>
-                <li><a href="#about">About</a></li>
-                <li><a href="#skills">Skills</a></li>
-                <li><a href="#projects">Projects</a></li>
-                <li><a href="#experience">Experience</a></li>
-                <li><a href="#contact">Contact</a></li>
-            </ul>
+            <div class="nav-links">
+                <a href="#overview" class="nav-link">Overview</a>
+                <a href="#repositories" class="nav-link">Repositories</a>
+                <a href="#projects" class="nav-link">Projects</a>
+                <a href="#skills" class="nav-link">Skills</a>
+            </div>
         </div>
     </header>
 
-    <!-- Hero Section -->
-    <section id="home" class="hero">
-        <div class="container">
-            <div class="hero-content">
-                <h1>Frontend Developer & Django Specialist</h1>
-                <p>I create beautiful, functional, and responsive web applications with modern technologies. With expertise in both frontend and backend development, I deliver complete solutions that drive business success.</p>
-                <a href="#projects" class="btn">View My Work</a>
-            </div>
-        </div>
-        <div class="hero-image">
-            <!-- Placeholder for an illustration or photo -->
-            <svg viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg">
-                <path fill="#3498db" d="M44.7,-76.1C58.1,-69.6,69.1,-58.1,77.2,-44.1C85.3,-30.2,90.5,-13.8,90.2,2.6C89.9,19,84.1,35.4,74.1,48.1C64.1,60.7,50,69.5,34.8,75.2C19.6,80.9,3.3,83.5,-11.6,80.7C-26.5,77.9,-39.9,69.7,-51.2,58.6C-62.5,47.5,-71.6,33.5,-76.5,17.8C-81.4,2.1,-82.1,-15.3,-78.1,-31.2C-74.1,-47.1,-65.3,-61.5,-53.2,-68.8C-41.1,-76.1,-25.5,-76.3,-9.8,-73.5C5.9,-70.7,11.9,-64.9,44.7,-76.1Z" transform="translate(100 100)" />
-            </svg>
-        </div>
-    </section>
-
-    <!-- About Section -->
-    <section id="about" class="section">
-        <div class="container">
-            <div class="section-title">
-                <h2>About Me</h2>
-            </div>
+    <main class="container">
+        <div class="profile-container">
+            <!-- Left sidebar (profile info) -->
+            <aside class="profile-sidebar">
+                <div class="profile-card">
+                    <img src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAyMDAgMjAwIj48cGF0aCBmaWxsPSIjMzQ5OGZiIiBkPSJNNDQuNywtNzYuMUM1OC4xLC02OS42LDY5LjEsLTU4LjEsNzcuMiwtNDQuMUM4NS4zLC0zMC4yLDkwLjUsLTEzLjgsOTAuMiwyLjZDODkuOSwxOSw4NC4xLDM1LjQsNzQuMSw0OC4xQzY0LjEsNjAuNyw1MCw2OS41LDM0LjgsNzUuMkMxOS42LDgwLjksMy4zLDgzLjUsLTExLjYsODAuN0MtMjYuNSw3Ny45LC0zOS45LDY5LjcsLTUxLjIsNTguNkMtNjIuNSw0Ny41LC03MS42LDMzLjUsLTc2LjUsMTcuOEMtODEuNCwyLjEsLTgyLjEsLTE1LjMsLTc4LjEsLTMxLjJDLTc0LjEsLTQ3LjEsLTY1LjMsLTYxLjUsLTUzLjIsLTY4LjhDLTQxLjEsLTc2LjEsLTI1LjUsLTc2LjMsLTkuOCwtNzMuNUM1LjksLTcwLjcsMTEuOSwtNjQuOSw0NC43LC03Ni4xWiIgdHJhbnNmb3JtPSJ0cmFuc2xhdGUoMTAwIDEwMCkiLz48L3N2Zz4=" alt="Avatar" class="avatar">
+                    <h1 class="username">YourName</h1>
+                    <p class="userbio">Frontend Developer + Python/Django Specialist</p>
+                    <div class="userdetails">
+                        <i class="far fa-building"></i>
+                        <span>Scintillate Informatics</span>
+                    </div>
+                    <div class="userdetails">
+                        <i class="fas fa-map-marker-alt"></i>
+                        <span>Your Location</span>
+                    </div>
+                    <div class="social-stats">
+                        <div class="stat">
+                            <span class="stat-number">24</span> followers
+                        </div>
+                        <div class="stat">
+                            <span class="stat-number">42</span> following
+                        </div>
+                        <div class="stat">
+                            <span class="stat-number">8</span> repos
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="profile-card">
+                    <h3>Highlights</h3>
+                    <div class="userdetails">
+                        <i class="fas fa-medal" style="color: var(--github-orange);"></i>
+                        <span>Proficient in JavaScript, React, Django</span>
+                    </div>
+                    <div class="userdetails">
+                        <i class="fas fa-briefcase" style="color: var(--github-accent);"></i>
+                        <span>UI Developer at Scintillate Informatics</span>
+                    </div>
+                </div>
+                
+                <div class="profile-card">
+                    <h3>Skills</h3>
+                    <div class="repo-meta" style="flex-wrap: wrap; gap: 8px; margin-top: 12px;">
+                        <span class="repo-language">
+                            <span class="language-color javascript-color"></span>
+                            JavaScript
+                        </span>
+                        <span class="repo-language">
+                            <span class="language-color python-color"></span>
+                            Python
+                        </span>
+                        <span class="repo-language">
+                            <span class="language-color html-color"></span>
+                            HTML
+                        </span>
+                        <span class="repo-language">
+                            <span class="language-color css-color"></span>
+                            CSS
+                        </span>
+                        <span class="repo-language">
+                            <i class="fab fa-react" style="color: #61dafb;"></i>
+                            React
+                        </span>
+                        <span class="repo-language">
+                            <i class="fab fa-python" style="color: #3776ab;"></i>
+                            Django
+                        </span>
+                    </div>
+                </div>
+            </aside>
             
-            <div class="about-content">
-                <div class="about-text">
-                    <h3>Hello! I'm a Frontend Developer with Django Backend Skills</h3>
-                    <p>I'm a passionate developer with 7 months of professional experience as a UI Developer at Scintillate Informatics. I specialize in creating modern, responsive web applications using HTML, CSS, JavaScript, React, and Next.js for the frontend, complemented by Python, Django, and Django REST Framework for the backend.</p>
-                    <p>My approach combines aesthetic design with technical excellence, ensuring that applications not only look great but also perform flawlessly. I'm constantly learning and adapting to new technologies to stay at the forefront of web development.</p>
-                    <p>When I'm not coding, you can find me exploring new tech trends, contributing to open source projects, or sharing knowledge with the developer community.</p>
+            <!-- Main content -->
+            <div class="profile-main">
+                <div class="tabs">
+                    <div class="tab active">Overview</div>
+                    <div class="tab">Repositories</div>
+                    <div class="tab">Projects</div>
+                    <div class="tab">Activity</div>
                 </div>
                 
-                <div class="about-image">
-                    <!-- Placeholder for profile image -->
-                    <svg viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg">
-                        <path fill="#3498db" d="M35.8,-64.2C48.7,-56.2,62.6,-50.9,71.8,-40.4C81,-29.9,85.5,-14.2,84.2,0.7C82.9,15.6,75.8,29.8,65.1,40.2C54.4,50.6,40.2,57.2,25.4,63.2C10.6,69.2,-4.8,74.6,-18.9,71.9C-33,69.2,-45.8,58.4,-56.9,45.6C-68,32.8,-77.4,18.1,-78.9,2.3C-80.4,-13.5,-73.9,-30.4,-63.2,-43.7C-52.5,-57,-37.6,-66.7,-22.1,-73.1C-6.6,-79.5,9.5,-82.6,35.8,-64.2Z" transform="translate(100 100)" />
-                    </svg>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Skills Section -->
-    <section id="skills" class="section skills">
-        <div class="container">
-            <div class="section-title">
-                <h2>My Skills</h2>
-            </div>
-            
-            <div class="skills-container">
-                <div class="skill-category">
-                    <h3>Frontend</h3>
-                    <ul class="skill-list">
-                        <li><i class="fab fa-html5"></i> HTML5</li>
-                        <li><i class="fab fa-css3-alt"></i> CSS3</li>
-                        <li><i class="fab fa-js-square"></i> JavaScript</li>
-                        <li><i class="fab fa-react"></i> React.js</li>
-                        <li><i class="fab fa-react"></i> Next.js</li>
-                    </ul>
-                </div>
-                
-                <div class="skill-category">
-                    <h3>Backend</h3>
-                    <ul class="skill-list">
-                        <li><i class="fab fa-python"></i> Python</li>
-                        <li><i class="fab fa-python"></i> Django</li>
-                        <li><i class="fas fa-server"></i> Django REST Framework</li>
-                    </ul>
-                </div>
-                
-                <div class="skill-category">
-                    <h3>Tools & Others</h3>
-                    <ul class="skill-list">
-                        <li><i class="fab fa-git-alt"></i> Git</li>
-                        <li><i class="fab fa-figma"></i> Figma</li>
-                        <li><i class="fas fa-database"></i> SQL Databases</li>
-                        <li><i class="fas fa-mobile-alt"></i> Responsive Design</li>
-                    </ul>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Projects Section -->
-    <section id="projects" class="section">
-        <div class="container">
-            <div class="section-title">
-                <h2>My Projects</h2>
-            </div>
-            
-            <div class="projects-container">
-                <div class="project-card">
-                    <div class="project-image">
-                        <!-- Project image placeholder -->
-                        <div style="background: #3498db; height: 100%; display: flex; align-items: center; justify-content: center; color: white;">
-                            <i class="fas fa-graduation-cap" style="font-size: 3rem;"></i>
-                        </div>
+                <!-- Contribution graph (simplified) -->
+                <div class="contribution-graph">
+                    <div class="graph-header">
+                        <strong>Contribution activity</strong>
                     </div>
-                    <div class="project-info">
-                        <h3>Learning Management System</h3>
-                        <p>A comprehensive LMS built with Django and React that allows educators to create courses and students to enroll and learn.</p>
-                        <div class="project-tags">
-                            <span>Django</span>
-                            <span>React</span>
-                            <span>PostgreSQL</span>
-                        </div>
-                        <a href="#" class="btn">View Project</a>
+                    <div class="graph-grid">
+                        <!-- Generating a grid of contribution cells -->
+                        <script>
+                            document.write(Array(364).fill(0).map((_, i) => 
+                                `<div class="graph-cell" data-level="${Math.floor(Math.random() * 5)}"></div>`
+                            ).join(''));
+                        </script>
                     </div>
                 </div>
                 
-                <div class="project-card">
-                    <div class="project-image">
-                        <!-- Project image placeholder -->
-                        <div style="background: #e74c3c; height: 100%; display: flex; align-items: center; justify-content: center; color: white;">
-                            <i class="fas fa-tools" style="font-size: 3rem;"></i>
+                <!-- Pinned repositories -->
+                <h3 style="margin-bottom: 16px;">Pinned repositories</h3>
+                <div class="repo-grid">
+                    <div class="repo-card">
+                        <div class="repo-header">
+                            <a href="#" class="repo-name">Learning Management System</a>
+                            <span class="repo-visibility">Public</span>
+                        </div>
+                        <p class="repo-desc">A comprehensive LMS built with Django and React for educational institutions.</p>
+                        <div class="repo-meta">
+                            <span class="repo-language">
+                                <span class="language-color python-color"></span>
+                                Python
+                            </span>
+                            <span><i class="far fa-star"></i> 42</span>
+                            <span><i class="fas fa-code-branch"></i> 12</span>
                         </div>
                     </div>
-                    <div class="project-info">
-                        <h3>Rehaul Application</h3>
-                        <p>A complete overhaul of an existing application with improved UI/UX, performance enhancements, and new features.</p>
-                        <div class="project-tags">
-                            <span>Next.js</span>
-                            <span>Django REST</span>
-                            <span>Material UI</span>
-                        </div>
-                        <a href="#" class="btn">View Project</a>
-                    </div>
-                </div>
-                
-                <div class="project-card">
-                    <div class="project-image">
-                        <!-- Project image placeholder -->
-                        <div style="background: #2c3e50; height: 100%; display: flex; align-items: center; justify-content: center; color: white;">
-                            <i class="far fa-calendar-alt" style="font-size: 3rem;"></i>
-                        </div>
-                    </div>
-                    <div class="project-info">
-                        <h3>Date Picker Component</h3>
-                        <p>A customizable, accessible date picker component built with React and styled with CSS-in-JS.</p>
-                        <div class="project-tags">
-                            <span>React</span>
-                            <span>JavaScript</span>
-                            <span>CSS-in-JS</span>
-                        </div>
-                        <a href="#" class="btn">View Project</a>
-                    </div>
-                </div>
-                
-                <div class="project-card">
-                    <div class="project-image">
-                        <!-- Project image placeholder -->
-                        <div style="background: #9b59b6; height: 100%; display: flex; align-items: center; justify-content: center; color: white;">
-                            <i class="fas fa-film" style="font-size: 3rem;"></i>
-                        </div>
-                    </div>
-                    <div class="project-info">
-                        <h3>Netflix Homepage Clone</h3>
-                        <p>A responsive clone of the Netflix homepage with movie browsing, category filtering, and video previews.</p>
-                        <div class="project-tags">
-                            <span>HTML</span>
-                            <span>CSS</span>
-                            <span>JavaScript</span>
-                        </div>
-                        <a href="#" class="btn">View Project</a>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Experience Section -->
-    <section id="experience" class="section experience">
-        <div class="container">
-            <div class="section-title">
-                <h2>Work Experience</h2>
-            </div>
-            
-            <div class="timeline">
-                <div class="timeline-item">
-                    <div class="timeline-content">
-                        <h3>UI Developer</h3>
-                        <p class="timeline-date">Feb 2023 - Present</p>
-                        <p>Scintillate Informatics</p>
-                        <p>Developed responsive web interfaces, collaborated with design teams to implement UI/UX best practices, and optimized frontend performance for various client projects.</p>
-                    </div>
-                </div>
-                
-                <div class="timeline-item">
-                    <div class="timeline-content">
-                        <h3>Frontend Developer Intern</h3>
-                        <p class="timeline-date">Aug 2022 - Jan 2023</p>
-                        <p>Tech Solutions Inc.</p>
-                        <p>Assisted in developing web applications using React.js, implemented responsive designs, and participated in code reviews and team meetings.</p>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Contact Section -->
-    <section id="contact" class="section">
-        <div class="container">
-            <div class="section-title">
-                <h2>Get In Touch</h2>
-            </div>
-            
-            <div class="contact-content">
-                <div class="contact-info">
-                    <h3>Let's Talk About Your Project</h3>
-                    <p>I'm available for freelance work and full-time opportunities. Feel free to reach out and I'll respond as soon as possible.</p>
                     
-                    <ul class="contact-details">
-                        <li>
-                            <i class="fas fa-envelope"></i>
-                            <span>your.email@example.com</span>
-                        </li>
-                        <li>
-                            <i class="fas fa-phone"></i>
-                            <span>+1 (234) 567-8901</span>
-                        </li>
-                        <li>
-                            <i class="fas fa-map-marker-alt"></i>
-                            <span>Your City, Country</span>
-                        </li>
-                    </ul>
+                    <div class="repo-card">
+                        <div class="repo-header">
+                            <a href="#" class="repo-name">Rehaul Application</a>
+                            <span class="repo-visibility">Public</span>
+                        </div>
+                        <p class="repo-desc">Complete overhaul of legacy application with modern UI/UX and improved performance.</p>
+                        <div class="repo-meta">
+                            <span class="repo-language">
+                                <span class="language-color javascript-color"></span>
+                                JavaScript
+                            </span>
+                            <span><i class="far fa-star"></i> 28</span>
+                            <span><i class="fas fa-code-branch"></i> 7</span>
+                        </div>
+                    </div>
+                    
+                    <div class="repo-card">
+                        <div class="repo-header">
+                            <a href="#" class="repo-name">Date Picker</a>
+                            <span class="repo-visibility">Public</span>
+                        </div>
+                        <p class="repo-desc">Customizable, accessible date picker component built with React.</p>
+                        <div class="repo-meta">
+                            <span class="repo-language">
+                                <span class="language-color javascript-color"></span>
+                                JavaScript
+                            </span>
+                            <span><i class="far fa-star"></i> 35</span>
+                            <span><i class="fas fa-code-branch"></i> 9</span>
+                        </div>
+                    </div>
+                    
+                    <div class="repo-card">
+                        <div class="repo-header">
+                            <a href="#" class="repo-name">Netflix Homepage</a>
+                            <span class="repo-visibility">Public</span>
+                        </div>
+                        <p class="repo-desc">Responsive Netflix homepage clone with movie browsing and filtering.</p>
+                        <div class="repo-meta">
+                            <span class="repo-language">
+                                <span class="language-color html-color"></span>
+                                HTML
+                            </span>
+                            <span><i class="far fa-star"></i> 51</span>
+                            <span><i class="fas fa-code-branch"></i> 15</span>
+                        </div>
+                    </div>
                 </div>
                 
-                <div class="contact-form">
-                    <form id="contactForm">
-                        <div class="form-group">
-                            <label for="name">Your Name</label>
-                            <input type="text" id="name" class="form-control" required>
-                        </div>
-                        
-                        <div class="form-group">
-                            <label for="email">Your Email</label>
-                            <input type="email" id="email" class="form-control" required>
-                        </div>
-                        
-                        <div class="form-group">
-                            <label for="subject">Subject</label>
-                            <input type="text" id="subject" class="form-control" required>
-                        </div>
-                        
-                        <div class="form-group">
-                            <label for="message">Your Message</label>
-                            <textarea id="message" class="form-control" required></textarea>
-                        </div>
-                        
-                        <button type="submit" class="btn">Send Message</button>
-                    </form>
-                </div>
+                <!-- Recent activity -->
+                <h3 style="margin: 24px 0 16px;">Recent activity</h3>
+                <ul class="activity-feed profile-card">
+                    <li class="activity-item">
+                        <span>You pushed to <a href="#" style="color: var(--github-accent);">rehaul-application</a> in <a href="#" style="color: var(--github-accent);">yourname/rehaul-application</a></span>
+                        <div class="activity-time">2 hours ago</div>
+                    </li>
+                    <li class="activity-item">
+                        <span>You created a repository <a href="#" style="color: var(--github-accent);">yourname/date-picker</a></span>
+                        <div class="activity-time">1 day ago</div>
+                    </li>
+                    <li class="activity-item">
+                        <span>You starred <a href="#" style="color: var(--github-accent);">facebook/react</a></span>
+                        <div class="activity-time">3 days ago</div>
+                    </li>
+                    <li class="activity-item">
+                        <span>You forked <a href="#" style="color: var(--github-accent);">django/django</a> to <a href="#" style="color: var(--github-accent);">yourname/django</a></span>
+                        <div class="activity-time">1 week ago</div>
+                    </li>
+                </ul>
             </div>
         </div>
-    </section>
+    </main>
 
-    <!-- Footer -->
-    <footer>
-        <div class="container">
-            <div class="social-links">
-                <a href="#"><i class="fab fa-github"></i></a>
-                <a href="#"><i class="fab fa-linkedin-in"></i></a>
-                <a href="#"><i class="fab fa-twitter"></i></a>
-                <a href="#"><i class="fab fa-instagram"></i></a>
-            </div>
-            
-            <p class="copyright">&copy; 2023 Your Name. All Rights Reserved.</p>
-        </div>
+    <footer class="footer container">
+        <p>© 2023 YourName. All rights reserved.</p>
+        <p>UI Developer specializing in Frontend technologies and Python/Django development</p>
     </footer>
 
     <script>
-        // Navigation toggle
-        const menuToggle = document.getElementById('menu-toggle');
-        const navLinks = document.getElementById('nav-links');
-        
-        menuToggle.addEventListener('click', () => {
-            navLinks.classList.toggle('active');
-        });
-        
-        // Close mobile menu when clicking on a link
-        document.querySelectorAll('.nav-links a').forEach(link => {
-            link.addEventListener('click', () => {
-                navLinks.classList.remove('active');
+        // Simple tab functionality
+        document.querySelectorAll('.tab').forEach(tab => {
+            tab.addEventListener('click', () => {
+                document.querySelectorAll('.tab').forEach(t => t.classList.remove('active'));
+                tab.classList.add('active');
             });
         });
         
-        // Header scroll effect
-        const header = document.getElementById('header');
-        
-        window.addEventListener('scroll', () => {
-            if (window.scrollY > 50) {
-                header.classList.add('scrolled');
-            } else {
-                header.classList.remove('scrolled');
-            }
+        // Simulate contribution graph
+        document.querySelectorAll('.graph-cell').forEach(cell => {
+            const level = Math.floor(Math.random() * 5);
+            cell.setAttribute('data-level', level);
         });
-        
-        // Smooth scrolling for navigation links
-        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-            anchor.addEventListener('click', function(e) {
-                e.preventDefault();
-                
-                const targetId = this.getAttribute('href');
-                if (targetId === '#') return;
-                
-                const targetElement = document.querySelector(targetId);
-                if (targetElement) {
-                    window.scrollTo({
-                        top: targetElement.offsetTop - 70,
-                        behavior: 'smooth'
-                    });
-                }
-            });
-        });
-        
-        // Form submission
-        const contactForm = document.getElementById('contactForm');
-        
-        contactForm.addEventListener('submit', function(e) {
-            e.preventDefault();
-            
-            // Here you would normally send the form data to a server
-            alert('Thank you for your message! I will get back to you soon.');
-            contactForm.reset();
-        });
-        
-        // Animation on scroll
-        const animateOnScroll = () => {
-            const elements = document.querySelectorAll('.timeline-item, .project-card, .skill-category');
-            
-            elements.forEach(element => {
-                const elementPosition = element.getBoundingClientRect().top;
-                const screenPosition = window.innerHeight / 1.3;
-                
-                if (elementPosition < screenPosition) {
-                    element.style.opacity = 1;
-                    element.style.transform = 'translateY(0)';
-                }
-            });
-        };
-        
-        // Initialize elements for animation
-        document.querySelectorAll('.timeline-item, .project-card, .skill-category').forEach(element => {
-            element.style.opacity = 0;
-            element.style.transform = 'translateY(20px)';
-            element.style.transition = 'opacity 0.5s ease, transform 0.5s ease';
-        });
-        
-        window.addEventListener('scroll', animateOnScroll);
-        // Initial check in case elements are already in view
-        animateOnScroll();
     </script>
 </body>
 </html>
